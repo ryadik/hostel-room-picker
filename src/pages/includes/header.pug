@@ -1,0 +1,9 @@
+mixin navLink(link, name)
+  li.menu__item
+        a(href=link class="menu__href")=name
+
+header
+  nav.menu
+    ul.menu__links
+      +navLink("index.html", "Главная")
+      +navLink("about.html", "О нас")
