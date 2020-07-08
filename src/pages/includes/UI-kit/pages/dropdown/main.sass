@@ -1,13 +1,63 @@
-.iqdropdown
+.dropdown
+  position: relative
   width: 22.2222222%
   height: 44px
   background-color: #fff
   border: 1px solid $darkShade25
   border-radius: 4px
   box-sizing: border-box
-  &__text
-    padding:
-      left: 15px
-      top: 10px
-      bottom: 10px
+  &__selection
+    display: block
+    padding: 10px 15px
+  &__button-open
+    position: absolute
+    right: 0
+    top: 0
+    width: 44px
+    height: 44px
+    &::before, &::after
+      position: absolute
+      content: ''
+      top: 50%
+      left: 50%
+      width: 10px
+      height: 2px
+      background-color: #8F8FA0
+    &::before
+      left: calc(50% - 3px)
+      transform: rotate(45deg)
+    &::after
+      left: calc(50% + 3px)
+      transform: rotate(-45deg)
+  &__menu-active
+    display: flex
+    flex-direction: column
+    padding: 
+      top: 3px
+      right: 3px
+      bottom: 8px
+      left: 8px
+    border: 1px solid $darkShade50
+  &__option
+    display: flex
+    justify-content: space-between
+  &__item
+    font-family: 'Montserrat-r'
+    font-size: 12px
+    line-height: 30px
+  &__button-decrement, &__button-increment
+    border: 1px solid $darkShade25
+    border-radius: 50%
+    width: 30px
+    height: 30px
+    box-sizing: border-box
+    color: $darkShade25
+    background-color: transparent
+  &__counter
+    font-family: 'Montserrat-r'
+    font-weight: bold
+    font-style: bold
+    font-size: 12px
+    line-height: 30px
+    padding: 0 10px
 

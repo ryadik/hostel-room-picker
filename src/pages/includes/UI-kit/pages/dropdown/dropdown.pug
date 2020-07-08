@@ -1,18 +1,17 @@
-
+mixin menuItem(options)
+  div(class='dropdown__option' data-id=options.id)
+    div
+      h3.dropdown__item=options.name
+      span.dropdown__decription=options.descripton
+    div
+      button.dropdown__button-decrement -
+      span.dropdown__counter 0
+      button.dropdown__button-increment +
 mixin dropDown()
-  div(class='custom iqdropdown')
-    p(class='iqdropdown-selection') Сколько гостей
-    div(class='iqdropdown-menu')
-      div(class='iqdropdown-menu-option' data-id='adult' data-defaultcount='0' data-mincount='0')
-        div
-          p(class='iqdropdown-item') Adult
-          p(class='iqdropdown-description') 12+ years 
-      div(class='iqdropdown-menu-option' data-id='minor' data-defaultcount='0' data-mincount='0')
-        div
-          p(class='iqdropdown-item') Children
-          p(class='iqdropdown-description') 2 - 11 years 
-      div(class='iqdropdown-menu-option' data-id='infant')
-        div
-          p(class='iqdropdown-item') Infants
-          p(class='iqdropdown-description') 2 years
-      button(class='iqdropdown-menu-close') Применить
+  .dropdown
+    span.dropdown__selection Сколько гостей
+    span.dropdown__button-open
+    .dropdown__menu.dropdown__menu-active
+      +menuItem({id: 'adult', name: 'Взрослые', description: ''})
+      +menuItem({id: 'minor', name: 'Дети', description: ''})
+      +menuItem({id: 'infant', name: 'Младенцы', description: ''})
