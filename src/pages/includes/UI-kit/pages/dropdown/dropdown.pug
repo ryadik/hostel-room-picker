@@ -1,17 +1,18 @@
-mixin menuItem(options)
-  div(class='dropdown__option' data-id=options.id)
-    div
-      h3.dropdown__item=options.name
-      span.dropdown__decription=options.descripton
-    div
-      button.dropdown__button-decrement -
-      span.dropdown__counter 0
-      button.dropdown__button-increment +
+mixin listItem(options)
+  div(class='option' data-id=options.id)
+    div.option-text
+      h3.option-text__item=options.name
+      span.option-text__decription=options.descripton
+    div.option-button
+      button.option-button__decrement -
+      span.option-button__counter 0
+      button.option-button__increment +
 mixin dropDown()
-  .dropdown
+  .dropdown.dropdown_active
     span.dropdown__selection Сколько гостей
     span.dropdown__button-open
-    .dropdown__menu.dropdown__menu-active
-      +menuItem({id: 'adult', name: 'Взрослые', description: ''})
-      +menuItem({id: 'minor', name: 'Дети', description: ''})
-      +menuItem({id: 'infant', name: 'Младенцы', description: ''})
+    .list.list_active
+      +listItem({id: 'adult', name: 'Взрослые', description: ''})
+      +listItem({id: 'minor', name: 'Дети', description: ''})
+      +listItem({id: 'infant', name: 'Младенцы', description: ''})
+      div.list__button-clean
