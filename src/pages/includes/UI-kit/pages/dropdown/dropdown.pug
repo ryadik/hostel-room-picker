@@ -1,20 +1,17 @@
-mixin listItem(options)
-  div(class='option' data-id=options.id)
-    div.option-text
-      h3.option-text__item=options.name
-      span.option-text__decription=options.descripton
-    div.option-button
-      button.option-button__decrement -
-      span.option-button__counter 0
-      button.option-button__increment +
-mixin dropDown()
-  .dropdown.dropdown_active
+include ../button-open/button-open.pug
+mixin dropDown(options)
+  .dropdown
     span.dropdown__selection Сколько гостей
-    span.dropdown__button-open
-    .list.list_active
-      +listItem({id: 'adult', name: 'Взрослые', description: ''})
-      +listItem({id: 'minor', name: 'Дети', description: ''})
-      +listItem({id: 'infant', name: 'Младенцы', description: ''})
+    +buttonOpen()
+    .list
+      each value, index in options
+        div(class='option' data-id=index)
+          div.option-text
+            h3.option-text__item=value
+          div.option-button
+            button.option-button__decrement -
+            span.option-button__counter 0
+            button.option-button__increment +
       div.list-button
         h3.list-button__clean Очистить
         h3.list-button__apply Применить
