@@ -1,45 +1,103 @@
-const btnsDecrement = document.querySelectorAll('.option-button__decrement')
-const counters = document.querySelectorAll('.option-button__counter')
+const drop = document.querySelectorAll('.dropdown') // all dropdown on page
 
+for (let i = 0; i < drop.length; i++) {
+  let btns = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__decrement`) // btns in current doprdown
+  let cntrs = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__counter`) // counters in current dropdown
+  let selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`) // selection filed in current dropdown
 
-for (let i = 0; i < btnsDecrement.length; i++) {
-  btnsDecrement[i].addEventListener('click', () => {
-    counter = Number(counters[i].innerHTML) - 1
-    
-    if (counters[i].innerHTML != 0) {
-      counters[i].innerHTML = counter
-    }
-    if (counters[i].innerHTML == 0) {
-      btnsDecrement[i].classList.remove('option-button__decrement_active')
-    }
-  })
+  // roomSelectionText(cntrs, selectionField) // 
 
-  btnsDecrement[i].addEventListener('click', () => {
-    let sumCountersValue = 0
-
-    for (cnt of counters) {
-      sumCountersValue += Number(cnt.innerHTML)
-    }
-    let selectionText = ''
-
-    if (sumCountersValue > 1 && sumCountersValue < 5) {
-      selectionText = `${sumCountersValue} гостя`
-    } else if (sumCountersValue > 5) {
-      selectionText = `${sumCountersValue} гостей`
-    } else {
-      switch (sumCountersValue) {
-        case 0:
-          selectionText = 'Сколько гостей'
-          break
-        case 1:
-          selectionText = `${sumCountersValue} гость`
-          break
-        case 5:
-          selectionText = `${sumCountersValue} гостей`
-          break
-      }
-    }
-    localStorage.setItem('selectionText', selectionText)
-    localStorage.setItem('sumCountersValue', sumCountersValue)
-  })
+  for (let k = 0; k < btns.length; k++) {
+    btns[k].addEventListener('click', () => {
+      counterDecrement(cntrs[k], btns[k])
+      setSelectionText(drop[i + 1], cntrs)
+      roomSelectionText(cntrs, selectionField)
+    })
+  }
 }
+
+
+function roomSelectionText (cntrs = 0, selectionField = '') {
+  let selectionText = ''
+  let rooms = ''
+  let beds = ''
+  let bathrooms = ''
+  let sumCntrs = sumCountersValue(cntrs) 
+
+  for (let i = 0; i < cntrs.length; i++) {
+    switch (i) {
+      case 0:
+        switch (Number(cntrs[i].innerHTML)) {
+          case 1:
+            rooms = `${cntrs[i].innerHTML} спальня,`
+            break
+          case 2:
+          case 3:
+          case 4:
+            rooms = `${cntrs[i].innerHTML} спальни,`
+            break
+          default:
+            rooms = ''
+          }
+        break
+      case 1:
+        switch (Number(cntrs[i].innerHTML)) {
+          case 1:
+            beds = `${cntrs[i].innerHTML} кровать,`
+            break
+          case 2:
+          case 3:
+          case 4:
+            beds = `${cntrs[i].innerHTML} кровати,`
+            break
+          default:
+            beds = ''
+          }
+        break
+      case 2:
+        switch (Number(cntrs[i].innerHTML)) {
+          case 1:
+            bathrooms = `${cntrs[i].innerHTML} ванная комната`
+            break
+          case 2:
+          case 3:
+          case 4:
+            bathrooms = `${cntrs[i].innerHTML} ванные комнаты`
+            break
+          default:
+            bathrooms = ''
+          }
+        break
+      default:
+        false
+    }
+  }
+
+  selectionText = (sumCntrs == 0) ? 'Удобство номера' : `${rooms} ${beds} ${bathrooms}`
+  
+  console.log(selectionText)
+
+  selectionField.innerHTML = selectionText
+} 
+
+function setSelectionText (id, cntr, element) {}
+
+function counterDecrement (cntrs, btns) {
+  counter = Number(cntrs.innerHTML) - 1
+    
+  if (cntrs.innerHTML != 0) {
+    cntrs.innerHTML = counter
+  } else {
+    btns.classList.remove('option-button__decrement_active')
+  }
+}
+
+function sumCountersValue (cntrs) {
+  let sum = 0
+  for (cnt of cntrs) {
+    sum += Number(cnt.innerHTML)
+  }
+  return sum
+}
+
+// для дропа комнат сделать проверску на айди и отдельный вызов аддевент
