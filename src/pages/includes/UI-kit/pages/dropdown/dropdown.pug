@@ -1,6 +1,6 @@
 include ../button-open/button-open.pug
-mixin dropDown(options)
-    .dropdown(data-id=data.id)
+mixin dropDown(options, data, text)
+  .dropdown(data-id=data.id)
     span.dropdown__selection(data-id=data.id)=text
     +buttonOpen()
     .list(data-name=data.name)
