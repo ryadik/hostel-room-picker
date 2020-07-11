@@ -1,16 +1,16 @@
 const drop = document.querySelectorAll('.dropdown') // all dropdown on page
 
 for (let i = 0; i < drop.length; i++) {
-  let btns = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__decrement`) // btns in current doprdown
-  let cntrs = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__counter`) // counters in current dropdown
-  let selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`) // selection filed in current dropdown
-
-  // roomSelectionText(cntrs, selectionField) // 
+  let btns = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__decrement`), // btns in current doprdown
+      cntrs = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__counter`), // counters in current dropdown
+      selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`) // selection filed in current dropdown
 
   for (let k = 0; k < btns.length; k++) {
     btns[k].addEventListener('click', () => {
       counterDecrement(cntrs[k], btns[k])
-      setSelectionText(drop[i + 1], cntrs)
+      if (i == 0){
+        guestSelectionText(cntrs, selectionField)
+      }
       if (i == 1) {
         roomSelectionText(cntrs, selectionField)
       }
@@ -20,11 +20,11 @@ for (let i = 0; i < drop.length; i++) {
 
 
 function roomSelectionText (cntrs = 0, selectionField = '') {
-  let selectionText = ''
-  let rooms = ''
-  let beds = ''
-  let bathrooms = ''
-  let sumCntrs = sumCountersValue(cntrs) 
+  let selectionText = '',
+      rooms = '',
+      beds = '',
+      bathrooms = '',
+      sumCntrs = sumCountersValue(cntrs) 
 
   for (let i = 0; i < cntrs.length; i++) {
     switch (i) {
@@ -70,8 +70,6 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
             bathrooms = ''
           }
         break
-      default:
-        false
     }
   }
 
@@ -80,7 +78,48 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
   selectionField.innerHTML = selectionText
 } 
 
-function setSelectionText (id, cntr, element) {}
+function guestSelectionText (cntrs = 0, selectionField = '') {
+  let selectionText = '',
+      guests = '',
+      infants = '',
+      sumCntrs = sumCountersValue(cntrs) 
+  for (i = 0; i < cntrs.length; i++) {
+    if (i == 0 || i == 1) {
+      sumValue = sumCountersValue([cntrs[0], cntrs[1]])
+      switch (sumValue) {
+        case 1:
+          guests = `${sumValue} гость`
+          break
+        case 2:
+        case 3:
+        case 4:
+          guests = `${sumValue} гостя`
+          break
+        case 5:
+          guests = `${sumValue} гостей`
+          break
+      }
+    } else {
+      switch (Number(cntrs[i].innerHTML)) {
+        case 1:
+          infants = `, ${cntrs[i].innerHTML} младенец`
+          break
+        case 2:
+        case 3:
+        case 4:
+          infants = `, ${cntrs[i].innerHTML} младенеца`
+          break
+        case 5:
+          infants = `, ${cntrs[i].innerHTML} младенецев`
+          break
+      }
+    }
+  }
+
+  selectionText = (sumCntrs == 0) ? 'Сколько гостей' : `${guests} ${infants}`
+
+  selectionField.innerHTML = selectionText
+}
 
 function counterDecrement (cntrs, btns) {
   counter = Number(cntrs.innerHTML) - 1
@@ -99,5 +138,3 @@ function sumCountersValue (cntrs) {
   }
   return sum
 }
-
-// для дропа комнат сделать проверску на айди и отдельный вызов аддевент
