@@ -1,4 +1,8 @@
 include textfield/textfield.pug
-+textField({type: 'text', class: 'form__text', placeholder: 'Email'})
 include dropdown/dropdown.pug
-+dropDown({adult: 'Взрослые', minor: 'Дети', infant: 'младенцы'})
+.textfield.div
+  +textField({type: 'text', class: 'form__text', placeholder: 'Email'})
+.div
+  +dropDown({adult: {name: 'Взрослые', count: "0"}, minor: {name: 'Дети', count: "0"}, infant: {name: 'Младенцы', count: "0"}}, {id: '1', name: 'guests-config', }, 'Сколько гостей')
+.div
+  +dropDown({rooms: {name: 'Спальни', count: "2"}, beds: {name: 'Кровати', count: "2"}, bathrooms: {name: 'Ванные комнаты', count: "0"}}, {id: '2', name: 'room-config'}, '2 спальни, 2 кровати 2 спальни, 2 кровати')

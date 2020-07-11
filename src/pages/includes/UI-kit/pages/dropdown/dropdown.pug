@@ -1,16 +1,16 @@
 include ../button-open/button-open.pug
 mixin dropDown(options)
-  .dropdown
-    span.dropdown__selection Сколько гостей
+    .dropdown(data-id=data.id)
+    span.dropdown__selection(data-id=data.id)=text
     +buttonOpen()
-    .list
+    .list(data-name=data.name)
       each value, index in options
-        div(class='option' data-id=index)
+        div(class='option' data-name=index)
           div.option-text
-            h3.option-text__item=value
+            h3.option-text__item=options[index]['name']
           div.option-button
             button.option-button__decrement -
-            span.option-button__counter 0
+            span.option-button__counter=options[index]['count']
             button.option-button__increment +
       div.list-button
         h3.list-button__clean Очистить
