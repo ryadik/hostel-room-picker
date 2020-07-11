@@ -11,7 +11,9 @@ for (let i = 0; i < drop.length; i++) {
     btns[k].addEventListener('click', () => {
       counterDecrement(cntrs[k], btns[k])
       setSelectionText(drop[i + 1], cntrs)
-      roomSelectionText(cntrs, selectionField)
+      if (i == 1) {
+        roomSelectionText(cntrs, selectionField)
+      }
     })
   }
 }
@@ -74,8 +76,6 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
   }
 
   selectionText = (sumCntrs == 0) ? 'Удобство номера' : `${rooms} ${beds} ${bathrooms}`
-  
-  console.log(selectionText)
 
   selectionField.innerHTML = selectionText
 } 
