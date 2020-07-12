@@ -6,6 +6,7 @@ for (let i = 0; i < drop.length; i++) {
       selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`) // selection filed in current dropdown
 
   for (let k = 0; k < btns.length; k++) {
+
     btns[k].addEventListener('click', () => {
       counterDecrement(cntrs[k], btns[k])
       if (i == 0){
@@ -120,12 +121,11 @@ function guestSelectionText (cntrs = 0, selectionField = '') {
 
 function counterDecrement (cntrs, btns) {
   counter = Number(cntrs.innerHTML) - 1
-    
-  if (cntrs.innerHTML != 0) {
-    cntrs.innerHTML = counter
-  } else {
-    btns.classList.remove('option-button__decrement_active')
-  }
+  
+  if (cntrs.innerHTML != 0) cntrs.innerHTML = counter 
+  if (cntrs.innerHTML == 0) btns.classList.remove('option-button__decrement_active')
+
+
 }
 
 function sumCountersValue (cntrs) {
