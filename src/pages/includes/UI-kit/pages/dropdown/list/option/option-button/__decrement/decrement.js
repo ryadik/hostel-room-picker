@@ -31,49 +31,48 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
       case 0:
         switch (Number(cntrs[i].innerHTML)) {
           case 1:
-            rooms = `${cntrs[i].innerHTML} спальня,`
+            rooms = `${cntrs[i].innerHTML} спальня`
             break
           case 2:
           case 3:
           case 4:
-            rooms = `${cntrs[i].innerHTML} спальни,`
+            rooms = `${cntrs[i].innerHTML} спальни`
             break
-          default:
-            rooms = ''
           }
         break
       case 1:
-        switch (Number(cntrs[i].innerHTML)) {
-          case 1:
-            beds = `${cntrs[i].innerHTML} кровать,`
-            break
-          case 2:
-          case 3:
-          case 4:
-            beds = `${cntrs[i].innerHTML} кровати,`
-            break
-          default:
-            beds = ''
+        if (Number(cntrs[i - 1].innerHTML > 0)) {
+          switch (Number(cntrs[i].innerHTML)) {
+            case 1:
+              beds = `, ${cntrs[i].innerHTML} кровать`
+              break
+            case 2:
+            case 3:
+            case 4:
+              beds = `, ${cntrs[i].innerHTML} кровати`
+              break
+            }
           }
         break
       case 2:
-        switch (Number(cntrs[i].innerHTML)) {
-          case 1:
-            bathrooms = `${cntrs[i].innerHTML} ванная комната`
-            break
-          case 2:
-          case 3:
-          case 4:
-            bathrooms = `${cntrs[i].innerHTML} ванные комнаты`
-            break
-          default:
-            bathrooms = ''
-          }
+        if (Number(cntrs[i - 1].innerHTML > 0)) {
+          switch (Number(cntrs[i].innerHTML)) {
+            case 1:
+              bathrooms = `, ${cntrs[i].innerHTML} ванная комната`
+              break
+            case 2:
+            case 3:
+            case 4:
+              bathrooms = `, ${cntrs[i].innerHTML} ванные комнаты`
+              break
+          break
+        }
         break
     }
   }
+    selectionText = (Number(cntrs[0].innerHTML == 0)) ? 'Удобство номера' : `${rooms} ${beds} ${bathrooms}`
+  }
 
-  selectionText = (sumCntrs == 0) ? 'Удобство номера' : `${rooms} ${beds} ${bathrooms}`
 
   selectionField.innerHTML = selectionText
 } 
@@ -81,11 +80,10 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
 function guestSelectionText (cntrs = 0, selectionField = '') {
   let selectionText = '',
       guests = '',
-      infants = '',
-      sumCntrs = sumCountersValue(cntrs) 
+      infants = ''
   for (i = 0; i < cntrs.length; i++) {
     if (i == 0 || i == 1) {
-      sumValue = sumCountersValue([cntrs[0], cntrs[1]])
+      sumValue = sumCountersValue([cntrs[0], cntrs[1]]) // sum first and second counters
       switch (sumValue) {
         case 1:
           guests = `${sumValue} гость`
@@ -99,7 +97,7 @@ function guestSelectionText (cntrs = 0, selectionField = '') {
           guests = `${sumValue} гостей`
           break
       }
-    } else {
+    } else if (sumValue > 0){
       switch (Number(cntrs[i].innerHTML)) {
         case 1:
           infants = `, ${cntrs[i].innerHTML} младенец`
@@ -116,8 +114,7 @@ function guestSelectionText (cntrs = 0, selectionField = '') {
     }
   }
 
-  selectionText = (sumCntrs == 0) ? 'Сколько гостей' : `${guests} ${infants}`
-
+  selectionText = (sumValue != 0) ? `${guests} ${infants}` : 'Сколько гостей'
   selectionField.innerHTML = selectionText
 }
 
