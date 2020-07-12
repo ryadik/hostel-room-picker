@@ -71,7 +71,7 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
         break
     }
   }
-    selectionText = (Number(cntrs[0].innerHTML == 0)) ? 'Удобство номера' : `${rooms} ${beds} ${bathrooms}`
+    selectionText = (Number(cntrs[0].innerHTML == 0)) ? 'Удобство номера' : `${rooms}${beds}${bathrooms}`
   }
 
 
@@ -115,7 +115,7 @@ function guestSelectionText (cntrs = 0, selectionField = '') {
     }
   }
 
-  selectionText = (sumValue != 0) ? `${guests} ${infants}` : 'Сколько гостей'
+  selectionText = (sumValue != 0) ? `${guests}${infants}` : 'Сколько гостей'
   selectionField.innerHTML = selectionText
 }
 
