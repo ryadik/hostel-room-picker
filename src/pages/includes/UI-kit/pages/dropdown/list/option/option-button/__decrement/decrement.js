@@ -4,23 +4,25 @@ for (let i = 0; i < drop.length; i++) {
   let btns = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__decrement`), // btns in current doprdown
       cntrs = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__counter`), // counters in current dropdown
       selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`) // selection filed in current dropdown
+      btnClean = document.querySelector(`div[data-id="${i + 1}"] .list-button__clean`) // selection filed in current dropdown
 
   for (let k = 0; k < btns.length; k++) {
 
     btns[k].addEventListener('click', () => {
       counterDecrement(cntrs[k], btns[k])
       if (i == 0){
-        guestSelectionText(cntrs, selectionField)
+        buildGuestSelectionText(cntrs, selectionField)
       }
       if (i == 1) {
-        roomSelectionText(cntrs, selectionField)
+        buildRoomSelectionText(cntrs, selectionField)
       }
+      removeBtnCleanActive(cntrs, btnClean)
     })
   }
 }
 
 
-function roomSelectionText (cntrs = 0, selectionField = '') {
+function buildRoomSelectionText (cntrs = 0, selectionField = '') {
   let selectionText = '',
       rooms = '',
       beds = '',
@@ -78,7 +80,7 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
   selectionField.innerHTML = selectionText
 } 
 
-function guestSelectionText (cntrs = 0, selectionField = '') {
+function buildGuestSelectionText (cntrs = 0, selectionField = '') {
   let selectionText = '',
       guests = '',
       infants = ''
@@ -124,8 +126,6 @@ function counterDecrement (cntrs, btns) {
   
   if (cntrs.innerHTML != 0) cntrs.innerHTML = counter 
   if (cntrs.innerHTML == 0) btns.classList.remove('option-button__decrement_active')
-
-
 }
 
 function sumCountersValue (cntrs) {
@@ -134,4 +134,12 @@ function sumCountersValue (cntrs) {
     sum += Number(cnt.innerHTML)
   }
   return sum
+}
+
+function removeBtnCleanActive (cntrs, btnClean) {
+  sumCntrs = sumCountersValue(cntrs)
+
+  if (sumCntrs == 0) {
+    btnClean.classList.remove('list-button__clean_active')
+  }
 }
