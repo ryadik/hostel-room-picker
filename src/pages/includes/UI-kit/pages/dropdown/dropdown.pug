@@ -1,7 +1,7 @@
 include ../button-open/button-open.pug
 mixin dropDown(options, data, text)
   .dropdown(data-id=data.id)
-    span.dropdown__selection(data-id=data.id)=text
+    input.dropdown__selection(type='text' placeholder=text value='' data-id=data.id readonly)
     +buttonOpen()
     .list(data-name=data.name)
       each value, index in options
