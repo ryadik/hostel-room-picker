@@ -102,6 +102,7 @@ module.exports = {
     entry: {
         main: ['@babel/polyfill', './scripts/index.js'],
         dropdown: './scripts/dropdown.js',
+        calendar: './scripts/calendar.js',
     },
     output: {
         filename: filename('js'),
