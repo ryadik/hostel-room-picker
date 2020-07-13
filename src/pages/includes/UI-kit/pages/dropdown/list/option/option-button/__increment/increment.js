@@ -3,18 +3,15 @@ const drop = document.querySelectorAll('.dropdown') // all dropdown on page
 for (let i = 0; i < drop.length; i++) {
   let btns = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__increment`), // btns in current doprdown
       cntrs = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__counter`), // counters in current dropdown
-      selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`) // selection filed in current dropdown
+      selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`), // selection filed in current dropdown
+      btnClean = document.querySelector(`div[data-id="${i + 1}"] .list-button__clean`) // btnClean in current dropdown
 
   for (let k = 0; k < btns.length; k++) {
-
     btns[k].addEventListener('click', () => {
       counterDecrement(cntrs[k], btns[k])
-      if (i == 0){
-        guestSelectionText(cntrs, selectionField)
-      }
-      if (i == 1) {
-        roomSelectionText(cntrs, selectionField)
-      }
+      if (i == 0) guestSelectionText(cntrs, selectionField)
+      if (i == 1) roomSelectionText(cntrs, selectionField)
+      addBtnCleanActive(cntrs, btnClean)
     })
   }
 }
@@ -24,8 +21,7 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
   let selectionText = '',
       rooms = '',
       beds = '',
-      bathrooms = '',
-      sumCntrs = sumCountersValue(cntrs) 
+      bathrooms = ''
 
   for (let i = 0; i < cntrs.length; i++) {
     switch (i) {
@@ -71,11 +67,11 @@ function roomSelectionText (cntrs = 0, selectionField = '') {
         break
     }
   }
-    selectionText = (Number(cntrs[0].innerHTML == 0)) ? 'Удобство номера' : `${rooms}${beds}${bathrooms}`
+    selectionText = (Number(cntrs[0].innerHTML != 0)) ? `${rooms}${beds}${bathrooms}` : ''
   }
 
 
-  selectionField.innerHTML = selectionText
+  selectionField.value = selectionText
 } 
 
 function guestSelectionText (cntrs = 0, selectionField = '') {
@@ -115,8 +111,8 @@ function guestSelectionText (cntrs = 0, selectionField = '') {
     }
   }
 
-  selectionText = (sumValue != 0) ? `${guests}${infants}` : 'Сколько гостей'
-  selectionField.innerHTML = selectionText
+  selectionText = (sumValue != 0) ? `${guests}${infants}` : ''
+  selectionField.value = selectionText
 }
 
 function counterDecrement (cntrs, btns) {
@@ -133,4 +129,12 @@ function sumCountersValue (cntrs) {
     sum += Number(cnt.innerHTML)
   }
   return sum
+}
+
+function addBtnCleanActive (cntrs, btn) {
+  sumCntrs = sumCountersValue(cntrs)
+
+  if (sumCntrs > 0) {
+    btn.classList.add('list-button__clean_active')
+  }
 }
