@@ -1,0 +1,1 @@
+require('../pages/includes/UI-kit/pages/calendar/calendar.js')
