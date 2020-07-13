@@ -1,0 +1,24 @@
+@import "~dhx-calendar/codebase/calendar.min"
+
+.dhx_calendar-day--selected::before
+  width: 40px
+  background-color: transparent
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+
+.dhx_calendar-day--in-range:after 
+  background-color: transparent
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+  opacity: 0.25
+
+.dhx_calendar-day--weekend
+  color: rgba(#000, 0.5)
+
+.dhx_calendar-day
+  font-size: 12px
+  line-height: 40px
+  margin: 0
+  &::before
+    width: 40px
+    height: 40px
+  &::after
+    height: 40px
