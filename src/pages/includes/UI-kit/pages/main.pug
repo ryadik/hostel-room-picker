@@ -2,11 +2,10 @@ include textfield/textfield.pug
 include dropdown/dropdown.pug
 include calendar/calendar.pug
 
-.textfield.div
-  +textField({type: 'text', class: 'form__text', placeholder: 'Email'})
-.div
-  +dropDown({adult: {name: 'Взрослые', count: "0"}, minor: {name: 'Дети', count: "0"}, infant: {name: 'Младенцы', count: "0"}}, {id: '1', name: 'guests-config', }, 'Сколько гостей')
-.div
-  +dropDown({rooms: {name: 'Спальни', count: "0"}, beds: {name: 'Кровати', count: "0"}, bathrooms: {name: 'Ванные комнаты', count: "0"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
-.div
-  +calendar
++textField({type: 'text', class: 'form__text', placeholder: 'Email'})
+
++dropDown({adult: {name: 'Взрослые', count: "0"}, minor: {name: 'Дети', count: "0"}, infant: {name: 'Младенцы', count: "0"}}, {id: '1', name: 'guests-config', }, 'Сколько гостей')
+
++dropDown({rooms: {name: 'Спальни', count: "0"}, beds: {name: 'Кровати', count: "0"}, bathrooms: {name: 'Ванные комнаты', count: "0"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
+
++calendar
