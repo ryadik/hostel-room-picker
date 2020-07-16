@@ -76,7 +76,7 @@ const plugins = () => {
             template: `${PAGES_DIR}/${page}`,
             filename: `./${page.replace(/\.pug/,'.html')}`
             // filename: `./${page.replace(/\.pug/,'.html')}`
-          })),
+        })),
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [{
@@ -86,7 +86,11 @@ const plugins = () => {
         }),
         new MiniCssExtractPlugin({
             filename: filename('css'), 
-        })
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
     ]
 
     if (isProd) {
