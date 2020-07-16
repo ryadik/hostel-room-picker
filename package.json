@@ -45,9 +45,6 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
-    "@fortawesome/fontawesome-free": "^5.13.1",
-    "dhx-calendar": "^6.5.1",
-    "item-quantity-dropdown": "^2.1.0",
     "jquery": "^3.5.1",
     "normalize.css": "^8.0.1",
     "pug": "^3.0.0",
