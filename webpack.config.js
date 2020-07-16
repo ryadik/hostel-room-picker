@@ -6,7 +6,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TesterWebpackPlugin = require('terser-webpack-plugin')
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev 
@@ -88,9 +89,9 @@ const plugins = () => {
             filename: filename('css'), 
         }),
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
-        }),
+            jQuery: "jquery",
+            $: "jquery" 
+        })
     ]
 
     if (isProd) {
@@ -183,7 +184,7 @@ module.exports = {
             {
                 test: /\.pug$/,
                 loader: 'pug-loader',
-            }
+            },
         ]
     }
 } 
