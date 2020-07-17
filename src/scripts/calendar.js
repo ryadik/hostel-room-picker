@@ -1,1 +1,1 @@
-require('../pages/includes/UI-kit/pages/calendar/calendar.js')
+require('../pages/includes/UI-kit/pages/datepicker/datepicker.js')
