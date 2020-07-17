@@ -1,11 +1,18 @@
 include textfield/textfield.pug
 include dropdown/dropdown.pug
-include calendar/calendar.pug
+include masked-textfield/masked-textfield.pug
+.textfield-container
+  h3 text filed
+  +textField({type: 'text', class: 'form__text', placeholder: 'Email'})
 
-+textField({type: 'text', class: 'form__text', placeholder: 'Email'})
+.dropdown-container
+  h3 dropdown
+  +dropDown({adult: {name: 'Взрослые', count: "0"}, minor: {name: 'Дети', count: "0"}, infant: {name: 'Младенцы', count: "0"}}, {id: '1', name: 'guests-config', }, 'Сколько гостей')
 
-+dropDown({adult: {name: 'Взрослые', count: "0"}, minor: {name: 'Дети', count: "0"}, infant: {name: 'Младенцы', count: "0"}}, {id: '1', name: 'guests-config', }, 'Сколько гостей')
+.dropdown-container
+  h3 dropdown
+  +dropDown({rooms: {name: 'Спальни', count: "0"}, beds: {name: 'Кровати', count: "0"}, bathrooms: {name: 'Ванные комнаты', count: "0"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
 
-+dropDown({rooms: {name: 'Спальни', count: "0"}, beds: {name: 'Кровати', count: "0"}, bathrooms: {name: 'Ванные комнаты', count: "0"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
-
-+calendar
+.datefield-container
+  h3 masked text field 
+  +maskedTextFiled('0', 'false', '')
