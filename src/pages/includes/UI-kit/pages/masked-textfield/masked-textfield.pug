@@ -1,3 +1,3 @@
-mixin calendar(range, separator)
+mixin calendar(id, range, separator)
   .calendar-containrer
-    input(type='text' class='calendar' data-range=range data-multiple-dates-separator=separator)
+    input(type='text' class='text-field calendar' placeholder = 'ДД.ММ.ГГГГ' readonly data-id=id data-range=range data-multiple-dates-separator=separator)
