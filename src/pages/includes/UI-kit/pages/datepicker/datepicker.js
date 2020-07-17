@@ -18,11 +18,11 @@ $('.calendar').datepicker({
   },
 })
 
-let btnsApply = [...document.querySelectorAll('span[data-action="today"]')]
+const btnsApply = [...document.querySelectorAll('span[data-action="today"]')]
 
-btnsApply.forEach((elem) => {
+btnsApply.forEach((elem, index) => {
   elem.addEventListener('click', () => {
-    let datepicker = $('#my-elem').datepicker().data('datepicker')
+    let datepicker = $(`.calendar[data-id=${index}]`).datepicker().data('datepicker')
     datepicker.hide()
   })
 })
