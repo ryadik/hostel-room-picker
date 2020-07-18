@@ -75,7 +75,7 @@ function buildGuestSelectionText(cntrs = 0, selectionField = '') {
   let selectionText = '';
   let guests = '';
   let infants = '';
-  let sumValue = ''
+  let sumValue = '';
   for (let i = 0; i < cntrs.length; i++) {
     if (i == 0 || i == 1) {
       sumValue = sumCountersValue([cntrs[0], cntrs[1]]); // sum first and second counters
