@@ -2,6 +2,8 @@ include textfield/textfield.pug
 include dropdown/dropdown.pug
 include masked-textfield/masked-textfield.pug
 include date-dropdown/date-dropdown.pug
+include filter-date-dropdown/filter-date-dropdown.pug
+
 .textfield-container
   h3 text filed
   +textField({type: 'text', class: 'form__text', placeholder: 'Email'})
@@ -21,3 +23,7 @@ include date-dropdown/date-dropdown.pug
 .datedropdown-container
   h3 date dropdown 
   +dateDropdown('1', 'true', ',')
+
+.filter-datedropdown-container
+  h3 filter date dropdown 
+  +filterDateDropdown('2', 'true', ' - ')
