@@ -3,6 +3,7 @@ include dropdown/dropdown.pug
 include masked-textfield/masked-textfield.pug
 include date-dropdown/date-dropdown.pug
 include filter-date-dropdown/filter-date-dropdown.pug
+include subscription-textfiled/subscription-textfiled.pug
 
 .textfield-container
   h3 text filed
@@ -27,3 +28,7 @@ include filter-date-dropdown/filter-date-dropdown.pug
 .filter-datedropdown-container
   h3 filter date dropdown 
   +filterDateDropdown('2', 'true', ' - ')
+
+.subscription-textfiled-container
+  h3 subscription textfiled 
+  +subscriptionTextfiled()
