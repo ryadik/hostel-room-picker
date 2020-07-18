@@ -4,6 +4,8 @@ include masked-textfield/masked-textfield.pug
 include date-dropdown/date-dropdown.pug
 include filter-date-dropdown/filter-date-dropdown.pug
 include subscription-textfiled/subscription-textfiled.pug
+include subscription-textfiled/subscription-textfiled.pug
+include expandable-checkbox-list/expandable-checkbox-list.pug
 
 .textfield-container
   h3 text filed
@@ -15,7 +17,7 @@ include subscription-textfiled/subscription-textfiled.pug
 
 .dropdown-container
   h3 dropdown
-  +dropDown({rooms: {name: 'Спальни', count: "0"}, beds: {name: 'Кровати', count: "0"}, bathrooms: {name: 'Ванные комнаты', count: "0"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
+  +dropDown({rooms: {name: 'Спальни', count: "2"}, beds: {name: 'Кровати', count: "2"}, bathrooms: {name: 'Ванные комнаты', count: "1"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
 
 .datefield-container
   h3 masked text field 
@@ -32,3 +34,6 @@ include subscription-textfiled/subscription-textfiled.pug
 .subscription-textfiled-container
   h3 subscription textfiled 
   +subscriptionTextfiled()
+
+.expandable-checkbox-list-container
+  +expandableCheckboxList('0', 'expandable checkbox list', {diner: 'Завтрак', desk: 'Письменный стол', feedingChair: 'Стул для кормления', crib: 'Кроватка', tv: 'Телевизор', shampoo: 'Шампунь'})
