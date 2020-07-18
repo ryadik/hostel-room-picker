@@ -1,138 +1,137 @@
-const drop = document.querySelectorAll('.dropdown') // all dropdown on page
+const drop = document.querySelectorAll('.dropdown'); // all dropdown on page
 
 for (let i = 0; i < drop.length; i++) {
-  let btns = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__decrement`), // btns in current doprdown
-      cntrs = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__counter`), // counters in current dropdown
-      selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`), // selection filed in current dropdown
-      btnClean = document.querySelector(`div[data-id="${i + 1}"] .list-button__clean`) // btnClean in current dropdown
+  const btns = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__decrement`); // btns in current doprdown
+  const cntrs = document.querySelectorAll(`div[data-id="${i + 1}"] .option-button__counter`); // counters in current dropdown
+  const selectionField = document.querySelector(`div[data-id="${i + 1}"] .dropdown__selection`); // selection filed in current dropdown
+  const btnClean = document.querySelector(`div[data-id="${i + 1}"] .list-button__clean`); // btnClean in current dropdown
 
   for (let k = 0; k < btns.length; k++) {
     btns[k].addEventListener('click', () => {
-      counterDecrement(cntrs[k], btns[k])
-      if (i == 0) buildGuestSelectionText(cntrs, selectionField)
-      if (i == 1) buildRoomSelectionText(cntrs, selectionField)
-      removeBtnCleanActive(cntrs, btnClean)
-    })
+      counterDecrement(cntrs[k], btns[k]);
+      if (i == 0) buildGuestSelectionText(cntrs, selectionField);
+      if (i == 1) buildRoomSelectionText(cntrs, selectionField);
+      removeBtnCleanActive(cntrs, btnClean);
+    });
   }
 }
 
-
-function buildRoomSelectionText (cntrs = 0, selectionField = '') {
-  let selectionText = '',
-      rooms = '',
-      beds = '',
-      bathrooms = '',
-      sumCntrs = sumCountersValue(cntrs) 
+function buildRoomSelectionText(cntrs = 0, selectionField = '') {
+  let selectionText = '';
+  let rooms = '';
+  let beds = '';
+  let bathrooms = '';
 
   for (let i = 0; i < cntrs.length; i++) {
     switch (i) {
       case 0:
         switch (Number(cntrs[i].innerHTML)) {
           case 1:
-            rooms = `${cntrs[i].innerHTML} спальня`
-            break
+            rooms = `${cntrs[i].innerHTML} спальня`;
+            break;
           case 2:
           case 3:
           case 4:
-            rooms = `${cntrs[i].innerHTML} спальни`
-            break
-          }
-        break
+            rooms = `${cntrs[i].innerHTML} спальни`;
+            break;
+        }
+        break;
       case 1:
         if (Number(cntrs[i - 1].innerHTML > 0)) {
           switch (Number(cntrs[i].innerHTML)) {
             case 1:
-              beds = `, ${cntrs[i].innerHTML} кровать`
-              break
+              beds = `, ${cntrs[i].innerHTML} кровать`;
+              break;
             case 2:
             case 3:
             case 4:
-              beds = `, ${cntrs[i].innerHTML} кровати`
-              break
-            }
+              beds = `, ${cntrs[i].innerHTML} кровати`;
+              break;
           }
-        break
+        }
+        break;
       case 2:
         if (Number(cntrs[i - 1].innerHTML > 0)) {
           switch (Number(cntrs[i].innerHTML)) {
             case 1:
-              bathrooms = `, ${cntrs[i].innerHTML} ванная комната`
-              break
+              bathrooms = `, ${cntrs[i].innerHTML} ванная комната`;
+              break;
             case 2:
             case 3:
             case 4:
-              bathrooms = `, ${cntrs[i].innerHTML} ванные комнаты`
-              break
-          break
+              bathrooms = `, ${cntrs[i].innerHTML} ванные комнаты`;
+              break;
+              break;
+          }
+          break;
         }
-        break
     }
+    selectionText = (Number(cntrs[0].innerHTML != 0)) ? `${rooms}${beds}${bathrooms}` : '';
   }
-    selectionText = (Number(cntrs[0].innerHTML != 0)) ? `${rooms}${beds}${bathrooms}` : ''
-  }
-  selectionField.value = selectionText
-} 
+  selectionField.value = selectionText;
+}
 
-function buildGuestSelectionText (cntrs = 0, selectionField = '') {
-  let selectionText = '',
-      guests = '',
-      infants = ''
-  for (i = 0; i < cntrs.length; i++) {
+function buildGuestSelectionText(cntrs = 0, selectionField = '') {
+  let selectionText = '';
+  let guests = '';
+  let infants = '';
+  let sumValue = ''
+  for (let i = 0; i < cntrs.length; i++) {
     if (i == 0 || i == 1) {
-      sumValue = sumCountersValue([cntrs[0], cntrs[1]]) // sum first and second counters
+      sumValue = sumCountersValue([cntrs[0], cntrs[1]]); // sum first and second counters
       switch (sumValue) {
         case 1:
-          guests = `${sumValue} гость`
-          break
+          guests = `${sumValue} гость`;
+          break;
         case 2:
         case 3:
         case 4:
-          guests = `${sumValue} гостя`
-          break
+          guests = `${sumValue} гостя`;
+          break;
         case 5:
-          guests = `${sumValue} гостей`
-          break
+          guests = `${sumValue} гостей`;
+          break;
       }
-    } else if (sumValue > 0){
+    } else if (sumValue > 0) {
       switch (Number(cntrs[i].innerHTML)) {
         case 1:
-          infants = `, ${cntrs[i].innerHTML} младенец`
-          break
+          infants = `, ${cntrs[i].innerHTML} младенец`;
+          break;
         case 2:
         case 3:
         case 4:
-          infants = `, ${cntrs[i].innerHTML} младенеца`
-          break
+          infants = `, ${cntrs[i].innerHTML} младенеца`;
+          break;
         case 5:
-          infants = `, ${cntrs[i].innerHTML} младенецев`
-          break
+          infants = `, ${cntrs[i].innerHTML} младенецев`;
+          break;
       }
     }
   }
 
-  selectionText = (sumValue != 0) ? `${guests}${infants}` : ''
-  selectionField.value = selectionText
+  selectionText = (sumValue != 0) ? `${guests}${infants}` : '';
+  selectionField.value = selectionText;
 }
 
-function counterDecrement (cntrs, btns) {
-  counter = Number(cntrs.innerHTML) - 1
-  
-  if (cntrs.innerHTML != 0) cntrs.innerHTML = counter 
-  if (cntrs.innerHTML == 0) btns.classList.remove('option-button__decrement_active')
+function counterDecrement(cntrs, btns) {
+  counter = Number(cntrs.innerHTML) - 1;
+
+  if (cntrs.innerHTML != 0) cntrs.innerHTML = counter;
+  if (cntrs.innerHTML == 0) btns.classList.remove('option-button__decrement_active');
 }
 
-function sumCountersValue (cntrs) {
-  let sum = 0
+function sumCountersValue(cntrs) {
+  let sum = 0;
   for (cnt of cntrs) {
-    sum += Number(cnt.innerHTML)
+    sum += Number(cnt.innerHTML);
   }
-  return sum
+  return sum;
 }
 
-function removeBtnCleanActive (cntrs, btn) {
-  sumCntrs = sumCountersValue(cntrs)
+function removeBtnCleanActive(cntrs, btn) {
+  sumCntrs = sumCountersValue(cntrs);
 
   if (sumCntrs == 0) {
-    btn.classList.remove('list-button__clean_active')
-  } 
+    btn.classList.remove('list-button__clean_active');
+  }
 }

@@ -1,1 +1,1 @@
-require('../pages/includes/UI-kit/pages/dropdown/dropdown.js')
+require('../pages/includes/UI-kit/pages/dropdown/dropdown.js');
