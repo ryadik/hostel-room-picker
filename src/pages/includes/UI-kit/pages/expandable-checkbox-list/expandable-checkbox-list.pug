@@ -1,9 +1,10 @@
 include ../button-open/button-open.pug
 mixin expandableCheckboxList(id, text, options)
-  .checkbox-list
-    h3.checkbox-list__title=text
-    +buttonOpen()
-    .list(data-id=id)
+  .expandable-checkbox-list
+    .expand-more
+      h3.expand-more__title=text
+      +buttonOpen()
+    .list.list_closed(data-id=id)
       each value, index in options
         .list__item
           input(id=index type='checkbox' )
