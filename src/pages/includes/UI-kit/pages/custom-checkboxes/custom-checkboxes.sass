@@ -1,0 +1,53 @@
+label
+  position: relative
+  font-family: Montserrat
+  font-style: normal
+  font-weight: normal
+  font-size: 14px
+  line-height: 18px
+  color: $darkShade50
+
+input[type='checkbox']
+  position: absolute
+  z-index: -1
+  opacity: 0
+  width: 20px
+  height: 20px
+
+  &:checked+label::before
+    border-color: $purple
+
+  &:checked+label::after
+    content: ''
+    position: absolute
+    left: 7px
+    top: 5px
+    width: 6px
+    height: 8px
+
+    border-bottom: 2px solid $purple
+    border-right: 2px solid $purple
+    border-image: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    border-image-slice: 1
+    box-sizing: border-box
+    
+    transform: rotate(45deg)
+
+
+input[type='checkbox']+label
+  display: inline-flex
+  align-items: center
+  user-select: none
+
+  &::before
+    content: ''
+    display: inline-block
+    width: 20px
+    height: 20px
+    border: 1px solid $darkShade25
+    border-radius: 4px
+    margin-right: 10px
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 50% 50%
+    box-sizing: border-box
