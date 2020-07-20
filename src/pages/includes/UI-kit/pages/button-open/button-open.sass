@@ -1,4 +1,5 @@
 .button-open
+  @import ./_active/active.sass
   position: absolute
   right: 0
   top: 0
@@ -6,20 +7,21 @@
   height: 44px
   cursor: pointer
   pointer-events: none
+  transition: transform 0.3s ease
 
   &::before, &::after
     position: absolute
     content: ''
-    top: 46%
-    left: 50%
+    top: 50%
+    left: 21px
     width: 8px
     height: 2px
     background-color: #8F8FA0
 
   &::before
-    left: calc(50% - 5px)
+    left: calc(16px)
     transform: rotate(45deg)
 
   &::after
-    left: calc(50%)
+    // left: calc(50%)
     transform: rotate(-45deg)
