@@ -1,0 +1,18 @@
+mixin checkboxButtons(id, data_class, options)
+  .checkbox-list(class = data_class)
+    if data_class=='simple'
+      h3.checkbox-list__title Checkbox list
+      each value, index in options
+        .list-item
+          input(id=index type='checkbox' )
+          label(for=index)
+            span !{value}
+    else if data_class=='rich'
+      h3.checkbox-list__title Rich Checkbox Buttons
+      each value, index in options
+        .list-item
+          input(id=index type='checkbox' )
+          label(for=index)
+            .list-item__text
+              span.list-item__title !{options[index]['title']}
+              span.list-item__subtitle !{options[index]['description']}
