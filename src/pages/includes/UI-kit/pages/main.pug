@@ -6,6 +6,7 @@ include filter-date-dropdown/filter-date-dropdown.pug
 include subscription-textfiled/subscription-textfiled.pug
 include subscription-textfiled/subscription-textfiled.pug
 include expandable-checkbox-list/expandable-checkbox-list.pug
+include checkbox-buttons/checkbox-buttons.pug
 
 .textfield-container
   h3 text filed
@@ -37,3 +38,8 @@ include expandable-checkbox-list/expandable-checkbox-list.pug
 
 .expandable-checkbox-list-container
   +expandableCheckboxList('0', 'expandable checkbox list', {diner: 'Завтрак', desk: 'Письменный стол', feedingChair: 'Стул для кормления', crib: 'Кроватка', tv: 'Телевизор', shampoo: 'Шампунь'})
+
+.checkbox-buttons-container
+  +checkboxButtons('0', 'simple', {smoking: 'Можно курить', pets: 'Можно с питомцами', guests: 'Можно пригласить гостей (до&#160;10&#160;человек)'})
+.checkbox-buttons-container
+  +checkboxButtons('1', 'rich', {wideCorridor: {title: 'Широкий коридор', description: 'Ширина коридоров в&#160;номере не&#160;менее 91&#160;см.'}, invalidsHelper: {title: 'Помощник для инвалидов', description: 'На&#160;1&#160;этаже вас встретит специалист и&#160;проводит до&#160;номера.'}})
