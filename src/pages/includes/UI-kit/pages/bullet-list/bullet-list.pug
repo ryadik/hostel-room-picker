@@ -1,0 +1,7 @@
+mixin bulletList(title, options)
+  .bullet-list
+    h3.bullet-list__title=title
+    ul.rules-list
+      each value, index in options
+        li.rules-list__item
+          span.rules-list-text !{value}
