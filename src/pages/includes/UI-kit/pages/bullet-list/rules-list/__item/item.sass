@@ -1,0 +1,16 @@
+&__item
+  position: relative
+  display: grid
+  grid-template-columns: 20px 1fr
+  margin-bottom: 10px
+  &:last-child
+    margin-bottom: 0
+
+  &::before
+    content: ''
+    width: 10px
+    height: 10px
+    border-radius: 100%
+    background-color: $darkShade25
+    margin-top: 7px
+    margin-right: 10px
