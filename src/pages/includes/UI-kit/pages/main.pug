@@ -8,6 +8,7 @@ include subscription-textfiled/subscription-textfiled.pug
 include expandable-checkbox-list/expandable-checkbox-list.pug
 include checkbox-buttons/checkbox-buttons.pug
 include bullet-list/bullet-list.pug
+include toggle-buttons/toggle-buttons.pug
 
 .textfield-container
   h3 text filed
@@ -47,3 +48,6 @@ include bullet-list/bullet-list.pug
 
 .bullet-list-container
   +bulletList('bullet list', {firstRule: 'Нельзя с питомцами', secondRule: 'Без вечеринок и мероприятий', thirdRule: 'Время прибытия&#160;&#8212; после 13:00, а&#160;выезд до&#160;12:00'})
+
+.toggle-buttons-container
+  +toggleButton('toggle', 'Получать спецпредложения')
