@@ -7,5 +7,5 @@ mixin expandableCheckboxList(id, text, options)
     .list.list_closed(data-id=id)
       each value, index in options
         .list__item
-          input(id=index type='checkbox' )
+          input(id=index type='checkbox').checkbox
           label(for=index)=value

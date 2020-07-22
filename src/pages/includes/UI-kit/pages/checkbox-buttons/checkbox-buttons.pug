@@ -5,7 +5,7 @@ mixin checkboxButtons(id, data_class, options)
       .list
         each value, index in options
           .list__item
-            input(id=index type='checkbox' )
+            input(id=index type='checkbox' ).checkbox
             label(for=index)
               .item-text
                 p.item-text__text !{value}
@@ -15,7 +15,7 @@ mixin checkboxButtons(id, data_class, options)
       .list
         each value, index in options
           .list__item
-            input(id=index type='checkbox' )
+            input(id=index type='checkbox' ).checkbox
             label(for=index)
               .item-text
                 p.item-text__title !{options[index]['title']}
