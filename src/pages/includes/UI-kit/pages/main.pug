@@ -9,6 +9,7 @@ include expandable-checkbox-list/expandable-checkbox-list.pug
 include checkbox-buttons/checkbox-buttons.pug
 include bullet-list/bullet-list.pug
 include toggle-buttons/toggle-buttons.pug
+include radio-buttons/radio-buttons.pug
 
 .textfield-container
   h3 text filed
@@ -51,3 +52,6 @@ include toggle-buttons/toggle-buttons.pug
 
 .toggle-buttons-container
   +toggleButton('toggle', 'Получать спецпредложения')
+
+.radio-buttons-container
+  +radioButton({firstButton: {id: 'rb1', name: 'rb-sex', text: 'Мужчина'}, secondButton: {id: 'rb2', name: 'rb-sex', text: 'Женщина'}})
