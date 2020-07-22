@@ -1,0 +1,6 @@
+mixin rateButton(count)
+  .rate-button
+    - for(var i = 0; i < count; i++)
+      span.icon-star-black-18dp
+    - for(var i = 5; i > count; i--)
+      span.icon-star_border-black-18dp
