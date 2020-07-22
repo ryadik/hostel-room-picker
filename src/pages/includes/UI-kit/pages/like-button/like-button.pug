@@ -1,0 +1,11 @@
+mixin likeButton(options)
+  if options.class == 'active'
+    .like-button.like-button_active
+      .like-button__icon.like-button__icon_active
+        span.icon-favorite-black-18dp
+      .like-button__counter.like-button__counter_active=options.counter
+  else
+    .like-button
+      .like-button__icon
+        span.icon-favorite_border-black-18dp
+      .like-button__counter=options.counter
