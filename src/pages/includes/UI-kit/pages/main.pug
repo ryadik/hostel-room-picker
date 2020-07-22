@@ -11,6 +11,7 @@ include bullet-list/bullet-list.pug
 include toggle-buttons/toggle-buttons.pug
 include radio-buttons/radio-buttons.pug
 include like-button/like-button.pug
+include rate-button/rate-button.pug
 
 .textfield-container
   h3 text filed
@@ -60,3 +61,7 @@ include like-button/like-button.pug
 .like-button-container
   +likeButton({class:'', counter: '2'})
   +likeButton({class:'active', counter: '12'})
+
+.rate-button-container
+  +rateButton(4)
+  +rateButton(5)
