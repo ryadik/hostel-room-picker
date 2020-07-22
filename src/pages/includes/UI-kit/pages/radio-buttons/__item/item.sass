@@ -1,0 +1,28 @@
+&__item
+  display: flex
+  min-height: 20px
+  align-items: center
+
+  input[type='radio']
+    position: relative
+    width: 20px
+    height: 20px
+    border: 1px solid $darkShade25
+    border-radius: 100%
+    cursor: pointer
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    margin-right: 10px
+
+    &:checked
+      border-color: $purple
+      &::after
+        content: ''
+        position: absolute
+        top: 3px
+        left: 3px
+        width: 12px
+        height: 12px
+        border-radius: 100%
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)

@@ -1,0 +1,9 @@
+mixin radioButton(options)
+  .radio-buttons
+    h3.radio-buttons__title Radio buttons
+    .radio-buttons__container
+      each value, index in options
+        .radio-buttons__item
+          input(type="radio", name=options[index]['name'] id=options[index]['id'])  
+          label(for=options[index]['id'])
+            span=options[index]['text']
