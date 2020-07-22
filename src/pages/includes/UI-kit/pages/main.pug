@@ -10,6 +10,7 @@ include checkbox-buttons/checkbox-buttons.pug
 include bullet-list/bullet-list.pug
 include toggle-buttons/toggle-buttons.pug
 include radio-buttons/radio-buttons.pug
+include like-button/like-button.pug
 
 .textfield-container
   h3 text filed
@@ -55,3 +56,7 @@ include radio-buttons/radio-buttons.pug
 
 .radio-buttons-container
   +radioButton({firstButton: {id: 'rb1', name: 'rb-sex', text: 'Мужчина'}, secondButton: {id: 'rb2', name: 'rb-sex', text: 'Женщина'}})
+
+.like-button-container
+  +likeButton({class:'', counter: '2'})
+  +likeButton({class:'active', counter: '12'})
