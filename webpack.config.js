@@ -10,7 +10,7 @@ const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === 'development'
-const isProd = !isDev 
+const isProd = !isDev
 
 
 // Pages const for HtmlWebpackPlugin
@@ -86,11 +86,11 @@ const plugins = () => {
             }]
         }),
         new MiniCssExtractPlugin({
-            filename: filename('css'), 
+            filename: filename('css'),
         }),
         new webpack.ProvidePlugin({
             jQuery: "jquery",
-            $: "jquery" 
+            $: "jquery"
         })
     ]
 
@@ -109,6 +109,7 @@ module.exports = {
         dropdown: './scripts/dropdown.js',
         calendar: './scripts/calendar.js',
         checklist: './scripts/checklist.js',
+        rangeSlider: './scripts/range-slider.js',
     },
     output: {
         filename: filename('js'),
@@ -144,7 +145,7 @@ module.exports = {
                     'css-loader',
                     'resolve-url-loader',
                     'sass-loader?sourceMap'
-                ], 
+                ],
             },
             {
                 test: /\.css$/,
@@ -188,4 +189,4 @@ module.exports = {
             },
         ]
     }
-} 
+}
