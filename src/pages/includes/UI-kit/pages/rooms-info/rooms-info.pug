@@ -1,0 +1,12 @@
+mixin roomsInfo(options)
+  .rooms-info
+    .info-card
+      .info-card__image
+        span(class=options.imageClass)
+      .info-card__text
+        .info-card__title
+          span=options.title
+        .info-card__subtitle
+          span=options.subtitle
+    if options.hrLine
+      hr
