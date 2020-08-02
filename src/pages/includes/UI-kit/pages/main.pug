@@ -13,6 +13,7 @@ include radio-buttons/radio-buttons.pug
 include like-button/like-button.pug
 include rate-button/rate-button.pug
 include range-slider/range-slider.pug
+include button/button.pug
 
 .textfield-container
   h3 text filed
@@ -69,3 +70,13 @@ include range-slider/range-slider.pug
 
 .range-slider-container
   +rangeSlider('Range slider')
+
+.buttons-container
+  h3 buttons
+  +button({text: 'click me', classes: 'button__item_black'})
+  +button({text: 'click me', classes: 'button__item_black button__item_transparent'})
+  +button({text: 'click me', classes: 'button__item_bordered'})
+  +button({text: 'click me', classes: 'button__item_bordered button__item_transparent'})
+  +button({text: 'click me', classes: 'button__item_borderless'})
+  +button({text: 'click me', classes: 'button__item_borderless button__item_inactive'})
+  +button({text: 'Перейти к оплате', classes: 'button__item_black button__item_longer', arrow: true})
