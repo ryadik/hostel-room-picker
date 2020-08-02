@@ -15,6 +15,7 @@ include rate-button/rate-button.pug
 include range-slider/range-slider.pug
 include button/button.pug
 include pagination/pagination.pug
+include rooms-info/rooms-info.pug
 
 .textfield-container
   h3 text filed
@@ -85,3 +86,9 @@ include pagination/pagination.pug
 .pagination-container
   h3 pagination
   +pagination()
+
+.rooms-info-container
+  h3 room's info
+  +roomsInfo({imageClass: 'icon-insert_emoticon-black-18dp', title: 'Комфорт', subtitle: 'Шумопоглощающие стены', hrLine: true})
+  +roomsInfo({imageClass: 'icon-location_city-black-18dp', title: 'Удобство', subtitle: 'Окно в каждой из спален', hrLine: true})
+  +roomsInfo({imageClass: 'icon-whatshot-black-18dp', title: 'Уют', subtitle: 'Номер оснащён камином'})
