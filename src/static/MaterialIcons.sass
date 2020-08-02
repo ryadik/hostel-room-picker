@@ -7,8 +7,8 @@
   font-display: block
 
 
-[class^="icon-"], [class*=" icon-"] 
-  // use !important to prevent issues with browser extensions that change fonts 
+[class^="icon-"], [class*=" icon-"]
+  // use !important to prevent issues with browser extensions that change fonts
   font-family: '#{$icomoon-font-family}' !important
   speak: never
   font-style: normal
@@ -22,20 +22,32 @@
   -moz-osx-font-smoothing: grayscale
 
 
-.icon-arrow_back 
-  &::before 
+.icon-whatshot-black-18dp
+  &:before
+    content: $icon-whatshot-black-18dp
+
+.icon-location_city-black-18dp
+  &:before
+    content: $icon-location_city-black-18dp
+
+.icon-insert_emoticon-black-18dp
+  &:before
+    content: $icon-insert_emoticon-black-18dp
+
+.icon-arrow_back
+  &::before
     content: $icon-arrow_back
 
-.icon-arrow_forward 
-  &:before 
+.icon-arrow_forward
+  &:before
     content: $icon-arrow_forward
 
 .icon-favorite-black-18dp
-  &:before 
+  &:before
     content: $icon-favorite-black-18dp
 
-.icon-favorite_border-black-18dp 
-  &:before 
+.icon-favorite_border-black-18dp
+  &:before
     content: $icon-favorite_border-black-18dp
 
 .icon-star-black-18dp
