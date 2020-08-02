@@ -12,6 +12,7 @@ include toggle-buttons/toggle-buttons.pug
 include radio-buttons/radio-buttons.pug
 include like-button/like-button.pug
 include rate-button/rate-button.pug
+include range-slider/range-slider.pug
 
 .textfield-container
   h3 text filed
@@ -26,19 +27,19 @@ include rate-button/rate-button.pug
   +dropDown({rooms: {name: 'Спальни', count: "2"}, beds: {name: 'Кровати', count: "2"}, bathrooms: {name: 'Ванные комнаты', count: "1"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
 
 .datefield-container
-  h3 masked text field 
+  h3 masked text field
   +maskedTextFiled('0', 'false', '')
 
 .datedropdown-container
-  h3 date dropdown 
+  h3 date dropdown
   +dateDropdown('1', 'true', ',')
 
 .filter-datedropdown-container
-  h3 filter date dropdown 
+  h3 filter date dropdown
   +filterDateDropdown('2', 'true', ' - ')
 
 .subscription-textfiled-container
-  h3 subscription textfiled 
+  h3 subscription textfiled
   +subscriptionTextfiled()
 
 .expandable-checkbox-list-container
@@ -65,3 +66,6 @@ include rate-button/rate-button.pug
 .rate-button-container
   +rateButton(4)
   +rateButton(5)
+
+.range-slider-container
+  +rangeSlider('Range slider')
