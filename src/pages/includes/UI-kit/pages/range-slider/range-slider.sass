@@ -1,0 +1,35 @@
+@import "~nouislider/distribute/nouislider.min"
+
+.slider
+  position: relative
+  width: 18.472222222%
+
+  @import ./__values/values.sass
+
+  .range-slider
+    height: 6px
+
+.noUi-target
+  background-color: #fff
+  box-shadow: none
+  border: 1px solid $darkShade25
+
+.noUi-horizontal
+  .noUi-handle
+    width: 16px
+    height: 16px
+    right: -6px
+    top: -6px
+
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+    box-shadow: none
+
+    border: 2px solid #fff
+    border-radius: 100%
+
+    &::before, &::after
+      display: none
+
+.noUi-connect
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+
