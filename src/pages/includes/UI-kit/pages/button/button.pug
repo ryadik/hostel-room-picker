@@ -1,0 +1,5 @@
+mixin button(options)
+  .button
+    button.button__item(class=options.classes)=options.text
+      if options.arrow
+        span.icon-arrow_forward
