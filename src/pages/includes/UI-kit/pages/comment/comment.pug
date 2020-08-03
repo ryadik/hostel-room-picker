@@ -1,0 +1,17 @@
+include ../like-button/like-button.pug
+
+mixin comment(options)
+  .comment
+    .comment__column
+      .user-avatar
+        img(src=require('@/static/images/comment-avatar.png').default alt='user-avatar')
+      .comment__rating
+        +likeButton({class: options.likeButtonClass, counter: options.likeButtonCount})
+    .comment__column
+      .comment__content
+        .comment__title
+          span=options.title
+        .comment__post-date
+          span=options.postDate
+        .comment__text
+          span=options.text
