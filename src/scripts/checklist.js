@@ -1,1 +1,1 @@
-require('../pages/includes/UI-kit/pages/expandable-checkbox-list/expandable-checkbox-list.js');
+require('../pages/includes/UI-kit/form-elements/expandable-checkbox-list/expandable-checkbox-list.js');
