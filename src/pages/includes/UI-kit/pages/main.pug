@@ -16,6 +16,7 @@ include range-slider/range-slider.pug
 include button/button.pug
 include pagination/pagination.pug
 include rooms-info/rooms-info.pug
+include comment/comment.pug
 
 .textfield-container
   h3 text filed
@@ -27,7 +28,7 @@ include rooms-info/rooms-info.pug
 
 .dropdown-container
   h3 dropdown
-  +dropDown({rooms: {name: 'Спальни', count: "2"}, beds: {name: 'Кровати', count: "2"}, bathrooms: {name: 'Ванные комнаты', count: "1"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
+  +dropDown({rooms: {name: 'Спальни', count: "0"}, beds: {name: 'Кровати', count: "0"}, bathrooms: {name: 'Ванные комнаты', count: "0"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
 
 .datefield-container
   h3 masked text field
@@ -92,3 +93,10 @@ include rooms-info/rooms-info.pug
   +roomsInfo({imageClass: 'icon-insert_emoticon-black-18dp', title: 'Комфорт', subtitle: 'Шумопоглощающие стены', hrLine: true})
   +roomsInfo({imageClass: 'icon-location_city-black-18dp', title: 'Удобство', subtitle: 'Окно в каждой из спален', hrLine: true})
   +roomsInfo({imageClass: 'icon-whatshot-black-18dp', title: 'Уют', subtitle: 'Номер оснащён камином'})
+
+.comment-container
+  h3 users review
+  +comment({title: 'Мурад Сарафанов', postDate: '5 дней назад', likeButtonClass: 'active', likeButtonCount: '12',
+            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. ' +
+                  'И стены, действительно, шумоподавляющие. ' +
+                  'Выкрикивал комплименты повару — никто не жаловался из соседей.'})
