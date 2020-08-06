@@ -1,0 +1,35 @@
+include ../../form-elements/date-dropdown/date-dropdown.pug
+include ../../form-elements/dropdown/dropdown.pug
+include ../../form-elements/button/button.pug
+
+mixin roomSelect(title)
+  .room-select
+    .room-select__title
+      h1=title
+    .room-select__content
+      .arrival-date-range
+        +dateDropdown('1', 'true', ',', 'Прибытие', 'Выезд')
+      .guests-count
+        +dropDown({
+          adult: {
+            name: 'Взрослые',
+            count: "0"
+          },
+          minor: {
+            name: 'Дети',
+            count: "0"
+          },
+          infant: {
+            name: 'Младенцы',
+            count: "0"
+          }
+        }, {
+          id: '1',
+          name: 'guests-config',
+        }, 'Сколько гостей', 'Гости')
+    .room-select__submit
+      +button({
+        text: 'Подобрать номер',
+        classes: 'button__item_black button__item_longer',
+        arrow: true
+      })
