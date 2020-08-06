@@ -17,11 +17,13 @@ const isProd = !isDev
 // const PAGES_DIR = PATHS.src
 const PAGES_DIR = path.resolve(__dirname, 'src/pages/')
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
+console.log(PAGES)
+PAGES.map(page => console.log(page.split('.')))
 
 const optimization = () => {
     const config = {
         splitChunks: {
-            chunks: 'all'
+            chunks: 'all',
         }
     }
     if (isProd) {
@@ -75,9 +77,14 @@ const plugins = () => {
     const base  = [
         ...PAGES.map(page => new HtmlWebpackPlugin({
             template: `${PAGES_DIR}/${page}`,
-            filename: `./${page.replace(/\.pug/,'.html')}`
-            // filename: `./${page.replace(/\.pug/,'.html')}`
+            filename: `./${page.replace(/\.pug/,'.html')}`,
+            chunks: ['index', `${page.split('.')[0]}`]
         })),
+        // new HtmlWebpackPlugin({
+        //     template: `${PAGES_DIR}/cards.pug`,
+        //     filename: `./${'cards.html'.replace(/\\.pug/, '.html')}`,
+        //     chunks: ['index', 'cards']
+        // }),
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [{
@@ -105,11 +112,10 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode : 'development',
     entry: {
-        main: ['@babel/polyfill', './scripts/index.js'],
-        dropdown: './scripts/dropdown.js',
-        calendar: './scripts/calendar.js',
-        checklist: './scripts/checklist.js',
-        rangeSlider: './scripts/range-slider.js',
+        index: ['@babel/polyfill', './scripts/index.js'],
+        formElements: './scripts/formElements.js',
+        cards: './scripts/cards.js'
+
     },
     output: {
         filename: filename('js'),
