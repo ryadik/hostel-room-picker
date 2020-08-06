@@ -1,0 +1,54 @@
+include ../../form-elements/textfield/textfield.pug
+include ../../form-elements/radio-buttons/radio-buttons.pug
+include ../../form-elements/masked-textfield/masked-textfield.pug
+include ../../form-elements/toggle-buttons/toggle-buttons.pug
+include ../../form-elements/button/button.pug
+
+mixin regForm()
+  .reg-form
+    h1.reg-form__title Регистрация аккаунта
+    .reg-form__data
+      .reg-form__name
+        +textField({
+          type: 'text',
+          class: 'reg-form__first-name',
+          placeholder: 'Имя'
+        })
+        +textField({
+          type: 'text',
+          class: 'reg-form__second-name',
+          placeholder: 'Фамилия'
+        })
+      +radioButton({
+        firstButton: {
+          id: 'rb1',
+          name: 'rb-sex',
+          text: 'Мужчина'
+        },
+        secondButton: {
+          id: 'rb2',
+          name: 'rb-sex',
+          text: 'Женщина'
+        }
+      })
+      h3.reg-form__subtitle Дата рождения
+      +maskedTextFiled('0', 'false', '')
+      h3.reg-form__subtitle данные для входа в сервис
+      .reg-form__login-data
+        +textField({
+          type: 'email',
+          class: 'reg-form__email',
+          placeholder: 'Email'
+        })
+        +textField({
+          type: 'password',
+          class: 'reg-form__password',
+          placeholder: 'Пароль'
+        })
+      +toggleButton('toggle', 'Получать спецпредложения')
+    .reg-form__submit
+      +button({text: 'Перейти к оплате', classes: 'button__item_black button__item_longer', arrow: true})
+    .reg-form__login
+      span Уже есть аккаунт на Toxin
+      +button({text: 'войти', classes: 'button__item_bordered'})
+
