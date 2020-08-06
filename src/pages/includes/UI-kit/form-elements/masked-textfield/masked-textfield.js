@@ -1,5 +1,5 @@
-$('.masked-textfiled__input').datepicker({
-  classes: 'masked-textfiled__calendar',
+$('.masked-textfield__input').datepicker({
+  classes: 'masked-textfield__calendar',
   clearButton: true, // clear button
   todayButton: true,
 
@@ -13,8 +13,8 @@ $('.masked-textfiled__input').datepicker({
   },
 });
 
-const btnApply = document.querySelector('.masked-textfiled__calendar span[data-action="today"]');
+const btnApply = document.querySelector('.masked-textfield__calendar span[data-action="today"]');
 
 btnApply.addEventListener('click', () => {
-  $('.masked-textfiled__input').data('datepicker').hide();
+  $('.masked-textfield__input').data('datepicker').hide();
 });

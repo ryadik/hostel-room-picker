@@ -1,4 +1,14 @@
-mixin dateDropdown(id, range, separator)
+include ../button-open/button-open.pug
+
+mixin dateDropdown(id, range, separator, titleFirst, titleSecond)
   .date-dropdown
-    input.date-dropdown__first.text-field.date-dropdown__input(placeholder='ДД.ММ.ГГГГ' readonly data-id=id data-range=range data-multiple-dates-separator=separator)
+    .date-dropdown__title
+      h3=titleFirst
+    .date-dropdown__title
+      h3=titleSecond
+    input.date-dropdown__first.text-field.date-dropdown__input(
+      placeholder='ДД.ММ.ГГГГ' readonly data-id=id
+      data-range=range data-multiple-dates-separator=separator
+    )
+
     input.date-dropdown__second.text-field(placeholder='ДД.ММ.ГГГГ' readonly)

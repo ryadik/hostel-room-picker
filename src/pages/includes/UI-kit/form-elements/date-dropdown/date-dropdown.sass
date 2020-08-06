@@ -1,6 +1,10 @@
 .date-dropdown
-  width: 22.2222222%
-  display: flex
+  width: 100%
+  display: grid
   justify-content: space-between
+
+  grid-template-columns: repeat(2, 1fr)
+  grid-column-gap: 20px
+  grid-row-gap: 5.44px
 
   @import ./text-field/text-field.sass

@@ -18,63 +18,63 @@ include pagination/pagination.pug
 include rooms-info/rooms-info.pug
 include comment/comment.pug
 
-.textfield-container
+.textfield-container.collect
   h3 text filed
   +textField({type: 'text', class: 'form__text', placeholder: 'Email'})
 
-.dropdown-container
+.dropdown-container.collect
   h3 dropdown
   +dropDown({adult: {name: 'Взрослые', count: "0"}, minor: {name: 'Дети', count: "0"}, infant: {name: 'Младенцы', count: "0"}}, {id: '1', name: 'guests-config', }, 'Сколько гостей')
 
-.dropdown-container
+.dropdown-container.collect
   h3 dropdown
   +dropDown({rooms: {name: 'Спальни', count: "0"}, beds: {name: 'Кровати', count: "0"}, bathrooms: {name: 'Ванные комнаты', count: "0"}}, {id: '2', name: 'room-config'}, 'Удобства номера')
 
-.datefield-container
+.datefield-container.collect
   h3 masked text field
   +maskedTextFiled('0', 'false', '')
 
-.datedropdown-container
+.datedropdown-container.collect
   h3 date dropdown
   +dateDropdown('1', 'true', ',')
 
-.filter-datedropdown-container
+.filter-date-dropdown-container.collect
   h3 filter date dropdown
   +filterDateDropdown('2', 'true', ' - ')
 
-.subscription-textfiled-container
+.subscription-textfiled-container.collect
   h3 subscription textfiled
   +subscriptionTextfiled()
 
-.expandable-checkbox-list-container
+.expandable-checkbox-list-container.collect
   +expandableCheckboxList('0', 'expandable checkbox list', {diner: 'Завтрак', desk: 'Письменный стол', feedingChair: 'Стул для кормления', crib: 'Кроватка', tv: 'Телевизор', shampoo: 'Шампунь'})
 
-.checkbox-buttons-container
+.checkbox-buttons-container.collect
   +checkboxButtons('0', 'simple', {smoking: 'Можно курить', pets: 'Можно с питомцами', guests: 'Можно пригласить гостей (до&#160;10&#160;человек)'})
-.checkbox-buttons-container
+.checkbox-buttons-container.collect
   +checkboxButtons('1', 'rich', {wideCorridor: {title: 'Широкий коридор', description: 'Ширина коридоров в&#160;номере не&#160;менее 91&#160;см.'}, invalidsHelper: {title: 'Помощник для инвалидов', description: 'На&#160;1&#160;этаже вас встретит специалист и&#160;проводит до&#160;номера.'}})
 
-.bullet-list-container
+.bullet-list-container.collect
   +bulletList('bullet list', {firstRule: 'Нельзя с питомцами', secondRule: 'Без вечеринок и мероприятий', thirdRule: 'Время прибытия&#160;&#8212; после 13:00, а&#160;выезд до&#160;12:00'})
 
-.toggle-buttons-container
+.toggle-buttons-container.collect
   +toggleButton('toggle', 'Получать спецпредложения')
 
-.radio-buttons-container
+.radio-buttons-container.collect
   +radioButton({firstButton: {id: 'rb1', name: 'rb-sex', text: 'Мужчина'}, secondButton: {id: 'rb2', name: 'rb-sex', text: 'Женщина'}})
 
-.like-button-container
+.like-button-container.collect
   +likeButton({class:'', counter: '2'})
   +likeButton({class:'active', counter: '12'})
 
-.rate-button-container
+.rate-button-container.collect
   +rateButton(4)
   +rateButton(5)
 
-.range-slider-container
+.range-slider-container.collect
   +rangeSlider('Range slider')
 
-.buttons-container
+.buttons-container.collect
   h3 buttons
   +button({text: 'click me', classes: 'button__item_black'})
   +button({text: 'click me', classes: 'button__item_black button__item_transparent'})
@@ -84,17 +84,17 @@ include comment/comment.pug
   +button({text: 'click me', classes: 'button__item_borderless button__item_inactive'})
   +button({text: 'Перейти к оплате', classes: 'button__item_black button__item_longer', arrow: true})
 
-.pagination-container
+.pagination-container.collect
   h3 pagination
   +pagination()
 
-.rooms-info-container
+.rooms-info-container.collect
   h3 room's info
   +roomsInfo({imageClass: 'icon-insert_emoticon-black-18dp', title: 'Комфорт', subtitle: 'Шумопоглощающие стены', hrLine: true})
   +roomsInfo({imageClass: 'icon-location_city-black-18dp', title: 'Удобство', subtitle: 'Окно в каждой из спален', hrLine: true})
   +roomsInfo({imageClass: 'icon-whatshot-black-18dp', title: 'Уют', subtitle: 'Номер оснащён камином'})
 
-.comment-container
+.comment-container.collect
   h3 users review
   +comment({title: 'Мурад Сарафанов', postDate: '5 дней назад', likeButtonClass: 'active', likeButtonCount: '12',
             text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. ' +

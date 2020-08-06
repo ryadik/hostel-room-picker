@@ -1,5 +1,6 @@
 include ../button-open/button-open.pug
-mixin dropDown(options, data, text)
+mixin dropDown(options, data, text, title)
+  h3.title=title
   .dropdown(data-id=data.id)
     input.dropdown__selection(type='text' placeholder=text value='' data-id=data.id readonly)
     +buttonOpen()
