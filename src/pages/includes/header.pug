@@ -1,9 +1,11 @@
-mixin navLink(link, name)
+mixin navLink(options)
   li.menu__item
-        a(href=link class="menu__href")=name
+        a(href=options.link class="menu__href")=options.name
 
 header
   nav.menu
     ul.menu__links
-      +navLink("index.html", "Главная")
-      +navLink("about.html", "О нас")
+      //+navLink({link: require('@/pages/includes/UI-kit/cards/cards.pug').default, name: "Cards"})
+      //+navLink({link: require('@/pages/includes/UI-kit/form-elements/form-elements.pug').default, name: "Form Elements"})
+      +navLink({ link: './cards.html', name: 'Cards'})
+      +navLink({ link: './formElements.html', name: 'Form Element'})
