@@ -1,0 +1,75 @@
+include ../../form-elements/textfield/textfield.pug
+include ../../form-elements/radio-buttons/radio-buttons.pug
+include ../../form-elements/masked-textfield/masked-textfield.pug
+include ../../form-elements/toggle-buttons/toggle-buttons.pug
+include ../../form-elements/button/button.pug
+
+mixin authForm(type)
+  if type === 0
+    .auth-form
+      h1.auth-form__title Регистрация аккаунта
+      .auth-form__data
+        .auth-form__name
+          +textField({
+            type: 'text',
+            class: 'auth-form__first-name',
+            placeholder: 'Имя'
+          })
+          +textField({
+            type: 'text',
+            class: 'auth-form__second-name',
+            placeholder: 'Фамилия'
+          })
+        +radioButton({
+          firstButton: {
+            id: 'rb1',
+            name: 'rb-sex',
+            text: 'Мужчина'
+          },
+          secondButton: {
+            id: 'rb2',
+            name: 'rb-sex',
+            text: 'Женщина'
+          }
+        })
+        h3.auth-form__subtitle Дата рождения
+        +maskedTextFiled('0', 'false', '')
+        h3.auth-form__subtitle данные для входа в сервис
+        .auth-form__login-data
+          +textField({
+            type: 'email',
+            class: 'auth-form__email',
+            placeholder: 'Email'
+          })
+          +textField({
+            type: 'password',
+            class: 'auth-form__password',
+            placeholder: 'Пароль'
+          })
+        +toggleButton('toggle', 'Получать спецпредложения')
+      .auth-form__submit
+        +button({text: 'Перейти к оплате', classes: 'button__item_black button__item_longer', arrow: true})
+      .auth-form__login
+        span Уже есть аккаунт на Toxin
+        +button({text: 'войти', classes: 'button__item_bordered'})
+  else if type === 1
+    .auth-form
+      h1.auth-form__title Войти
+      .auth-form__data
+        .auth-form__login-data
+          +textField({
+            type: 'email',
+            class: 'auth-form__email',
+            placeholder: 'Email'
+          })
+          +textField({
+            type: 'password',
+            class: 'auth-form__password',
+            placeholder: 'Пароль'
+          })
+      .auth-form__submit
+        +button({text: 'Перейти к оплате', classes: 'button__item_black button__item_longer', arrow: true})
+      .auth-form__login
+        span Нет аккаунта на Toxin?
+        +button({text: 'создать', classes: 'button__item_bordered'})
+

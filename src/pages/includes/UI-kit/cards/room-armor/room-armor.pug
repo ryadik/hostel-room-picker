@@ -1,0 +1,57 @@
+include ../../form-elements/date-dropdown/date-dropdown.pug
+include ../../form-elements/dropdown/dropdown.pug
+include ../../form-elements/button/button.pug
+
+mixin roomArmor(options)
+  .room-armor
+    .room-armor__header
+      .room-armor__number
+        h3 №
+        h1 !{options.roomNum}
+        h3=options.roomType
+      .room-armor__cost
+        span 9 990₽&#160;
+        span в сутки
+    .room-armor__stay-dates
+      +dateDropdown('1', 'true', ',', 'Прибытие', 'Выезд')
+    .room-armor__guests-count
+      +dropDown({
+        adult: {
+          name: 'Взрослые',
+          count: "0"
+        },
+        minor: {
+          name: 'Дети',
+          count: "0"
+        },
+        infant: {
+          name: 'Младенцы',
+          count: "0"
+        }
+      }, {
+        id: '1',
+        name: 'guests-config',
+      }, 'Сколько гостей', 'Гости')
+    .price-list
+      .price-list__living-cost
+        span.left-column 9 990₽ x&#160;
+          span 4 суток
+        span.right-column 39 640₽
+      .price-list__service-charge
+        span.left-column Сбор за услуги: скидка 2 179₽
+          span.more-info
+        span.right-column 0₽
+      .price-list__additional-charge
+        span.left-column Сбор за дополнительные услуги
+          span.more-info
+        span.right-column 300₽
+    .room-armor__total-price
+      h1 Итого
+      h1 38 081₽
+    .room-armor__submit
+      +button({
+        text: 'Подобрать номер',
+        classes: 'button__item_black button__item_longer',
+        arrow: true
+      })
+
