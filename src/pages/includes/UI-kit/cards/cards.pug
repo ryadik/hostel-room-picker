@@ -1,5 +1,8 @@
-include room-select/room-select.pug
-include reg-form/reg-form.pug
+include room-select/room-select
+include auth-form/auth-form
+include room-armor/room-armor
 
 +roomSelect('Найдём номера под ваши пожелания')
-+regForm('Регистрация аккаунта')
++authForm(0)
++authForm(1)
++roomArmor({roomNum: '&#160;888&#160;', roomType: 'ЛЮКС'})
