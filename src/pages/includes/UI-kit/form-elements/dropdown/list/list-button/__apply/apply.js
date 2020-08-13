@@ -1,10 +1,8 @@
-const drop = document.querySelectorAll('.dropdown');
+const btnsApply = document.querySelectorAll('.list-button__apply');
 
-for (let i = 0; i < drop.length; i++) {
-  const btnApply = document.querySelector(`div[data-id="${i + 1}"] .list-button__apply`);
-
-  btnApply.addEventListener('click', () => {
-    document.querySelector(`div[data-id="${i + 1}"]`).classList.remove('dropdown_active');
-    document.querySelector(`div[data-id="${i + 1}"] .list`).classList.remove('list_active');
-  });
-}
+btnsApply.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.target.offsetParent.classList.toggle('dropdown_active')
+    e.target.offsetParent.lastChild.classList.toggle('list_active')
+  })
+})
